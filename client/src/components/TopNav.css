@@ -1,0 +1,200 @@
+header {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  background-color: white;
+  justify-content: space-between;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+header img {
+  height: 2rem;
+  object-fit: contain;
+}
+
+header h1 {
+  font-size: 1.6rem;
+}
+
+header button {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  background: none;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 0.5rem 1rem;
+  background-color: black;
+  gap: 0.5rem;
+  transition: all 0.15s ease-in-out;
+  color: white;
+}
+
+header .button-container .icon {
+  font-size: 1.2rem;
+}
+
+header .button-container:active {
+  color: black;
+  background-color: white;
+  outline: 2px solid black;
+}
+
+/* Modal */
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.modal-container.show {
+  opacity: 1;
+  display: flex;
+}
+
+@keyframes openModalAnim {
+  0% {
+    transform: translateY(-10rem);
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes closeModalAnim {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+    display: block;
+  }
+  100% {
+    transform: translateY(-10rem);
+    opacity: 0;
+    display: none;
+  }
+}
+
+.form-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 80%;
+  width: 40rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.form-container h1 {
+  font-size: 1.8rem;
+}
+
+.form-container form textarea {
+  outline: 1px solid rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 0.2rem;
+  padding: 1rem;
+  max-width: 100%;
+  min-width: 100%;
+  font-size: 1.4rem;
+}
+
+.form-container .form-action {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.form-action .cancel {
+  flex: 1;
+  outline: 2px solid black;
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  text-align: center;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.form-action button {
+  flex: 1;
+  border-radius: 0.2rem;
+  border: none;
+  padding: 0.5rem;
+  outline: 2px solid black;
+  font-size: 1.4rem;
+  background-color: black;
+  color: white;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.form-action .cancel:active {
+  background-color: black;
+  color: white;
+}
+
+.form-action button:active {
+  background-color: white;
+  color: black;
+}
+
+/* Reponsive */
+@media screen and (min-width: 600px) {
+  header {
+    padding: 1rem 2rem 1rem 1rem;
+  }
+
+  header img {
+    height: 3.1rem;
+  }
+
+  header h1 {
+    font-size: 2.6rem;
+  }
+
+  header .button-container {
+    font-size: 1.8rem;
+  }
+
+  header .button-container .icon {
+    font-size: 2.1rem;
+  }
+
+  .modal-container .form-container h1 {
+    font-size: 2.6rem;
+  }
+
+  .modal-container .form-container form textarea {
+    font-size: 1.6rem;
+  }
+}

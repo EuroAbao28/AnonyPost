@@ -1,0 +1,100 @@
+.home-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.home-container main {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow-y: auto;
+}
+
+.card-container {
+  position: absolute;
+  flex-wrap: wrap;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+  width: 100%;
+}
+
+.card-container .card {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.card-container .card .body {
+  font-size: 1.4rem;
+}
+
+.card-container .card .tools {
+  background-color: black;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+  font-size: 1rem;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+  right: 1.5rem;
+  top: -1rem;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  transform: translateY(-1rem);
+  cursor: pointer;
+}
+
+.card-container .card .tools.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-container .card .tools.show:active {
+  background-color: white;
+  outline: 2px solid black;
+  color: black;
+}
+
+.card-container .card span {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--blck-6);
+}
+
+.card-container .card span::before {
+  content: "- ";
+}
+
+.card-container .card span::after {
+  content: " -";
+}
+
+/* Reponsive */
+@media screen and (min-width: 600px) {
+  .card-container {
+    padding: 2rem 5rem;
+  }
+  .card-container .card .body {
+    font-size: 1.6rem;
+  }
+
+  .card-container .card .tools p {
+    font-size: 1.4rem;
+  }
+
+  .card-container .card span {
+    font-size: 1.2rem;
+  }
+}
