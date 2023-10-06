@@ -61,6 +61,12 @@ function TopNav({ refresh }) {
       });
   };
 
+  const handleClose = () => {
+    setModalState(false);
+    setBody("");
+    setAuthor("");
+  };
+
   useEffect(() => {
     // get the current URL
     // it only get the path
@@ -109,7 +115,7 @@ function TopNav({ refresh }) {
               onChange={(e) => setAuthor(e.target.value)}
             />
             <div className="form-action">
-              <div className="cancel" onClick={() => setModalState(false)}>
+              <div className="cancel" onClick={handleClose}>
                 Cancel
               </div>
               <button type="submit">Post</button>
