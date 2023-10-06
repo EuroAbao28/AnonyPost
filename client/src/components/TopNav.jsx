@@ -2,10 +2,64 @@ import React, { useEffect, useState } from "react";
 import logoIcon from "../assets/who.png";
 import "./TopNav.css";
 import { LuCopyPlus } from "react-icons/lu";
+import axios from "axios";
+import { toast } from "react-toastify";
 
-function TopNav() {
+function TopNav({ refresh }) {
+  const apiURL = "https://anonypost.onrender.com/api/post/";
   const [currentURL, setCurrentURL] = useState(null);
   const [modalState, setModalState] = useState(false);
+  const [body, setBody] = useState("");
+  const [author, setAuthor] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!body) {
+      toast.error("Body must not be empty", {
+        className: "toast-container",
+        autoClose: 2000,
+        theme: "dark",
+      });
+      return;
+    }
+
+    if (!author) {
+      axios
+        .post(apiURL, { body, author: "Anonymous" })
+        .then((response) => {
+          setModalState(false);
+          refresh();
+          setBody("");
+          setAuthor("");
+          toast.success(response.data.message, {
+            className: "toast-container",
+            autoClose: 2000,
+            theme: "dark",
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    axios
+      .post(apiURL, { body, author })
+      .then((response) => {
+        setModalState(false);
+        refresh();
+        setBody("");
+        setAuthor("");
+        toast.success(response.data.message, {
+          className: "toast-container",
+          autoClose: 2000,
+          theme: "dark",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     // get the current URL
@@ -36,8 +90,24 @@ function TopNav() {
       <div className={`modal-container ${modalState ? "show" : " "}`}>
         <div className="form-container">
           <h1>Share your thoughts</h1>
-          <form>
-            <textarea type="text" placeholder="Write something..." rows={4} />
+          <form onSubmit={handleSubmit}>
+            <textarea
+              type="text"
+              placeholder="Write something..."
+              rows={4}
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
+            />
+            <label htmlFor="author">
+              Author name <span>(Optional)</span>
+            </label>
+            <input
+              type="text"
+              id="author"
+              placeholder="username, etc."
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+            />
             <div className="form-action">
               <div className="cancel" onClick={() => setModalState(false)}>
                 Cancel

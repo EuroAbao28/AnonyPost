@@ -1,3 +1,9 @@
+/* Toast Message */
+.toast-container {
+  background-color: red;
+  font-size: 1.4rem;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -113,18 +119,39 @@ header .button-container:active {
   margin-top: 1rem;
 }
 
-.form-container h1 {
-  font-size: 1.8rem;
-}
-
 .form-container form textarea {
-  outline: 1px solid rgba(0, 0, 0, 0.6);
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 0.2rem;
   padding: 1rem;
   max-width: 100%;
   min-width: 100%;
   font-size: 1.4rem;
+}
+
+.form-container form label {
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.form-container form label span {
+  color: red;
+  font-size: 1rem;
+}
+
+.form-container form input {
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 0.2rem;
+  font-size: 1.4rem;
+}
+
+.form-container h1 {
+  font-size: 1.8rem;
 }
 
 .form-container .form-action {
@@ -195,6 +222,18 @@ header .button-container:active {
   }
 
   .modal-container .form-container form textarea {
+    font-size: 1.6rem;
+  }
+
+  .modal-container .form-container form label {
+    font-size: 1.6rem;
+  }
+
+  .modal-container .form-container form label span {
+    font-size: 1.2rem;
+  }
+
+  .modal-container .form-container form input {
     font-size: 1.6rem;
   }
 }
