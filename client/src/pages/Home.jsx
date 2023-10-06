@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import TopNav from "../components/TopNav";
 import axios from "axios";
+import copy from "clipboard-copy";
 
 function Home() {
   const apiURL = "https://anonypost.onrender.com/api/post/";
@@ -22,6 +23,15 @@ function Home() {
     }
   };
 
+  const handleCopy = async (body) => {
+    try {
+      await copy(body);
+      console.log("Copied note: ", body);
+    } catch (error) {
+      console.error("Copy failed: ", error);
+    }
+  };
+
   useEffect(() => {
     getPosts();
   }, []);
@@ -39,7 +49,7 @@ function Home() {
                 key={post._id}>
                 <div
                   className={`tools ${toggleTool == post._id ? "show" : ""}`}>
-                  <p>Copy </p>
+                  <p onClick={() => handleCopy(post.body)}>Copy </p>
                 </div>
                 <p className="body">{post.body}</p>
                 <span>{post.author}</span>
