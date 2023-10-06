@@ -15,17 +15,19 @@ function LandingPage() {
     <div className="landing-page-container">
       <TopNav />
       <main>
-        <img src={svgIcon} alt="SVG" />
-        <section>
-          <h1>Welcome to AnonyPost</h1>
-          <p>
-            The place where your words find a home, choose to be the author of
-            your words or let them roam free, anonymously. Share your favorite
-            quotes, personal thoughts, or inspirational notes. It's all about
-            expressing yourself, your way.
-          </p>
-          <button onClick={handleButton}>Start sharing</button>
-        </section>
+        <div className="child">
+          <img src={svgIcon} alt="SVG" />
+          <section>
+            <h1>Welcome to AnonyPost</h1>
+            <p>
+              The place where your words find a home, choose to be the author of
+              your words or let them roam free, anonymously. Share your favorite
+              quotes, personal thoughts, or inspirational notes. It's all about
+              expressing yourself, your way.
+            </p>
+            <button onClick={handleButton}>Start sharing</button>
+          </section>
+        </div>
       </main>
       <footer>
         <p>Develop by</p>
