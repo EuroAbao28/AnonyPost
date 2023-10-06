@@ -4,9 +4,11 @@ import "./TopNav.css";
 import { LuCopyPlus } from "react-icons/lu";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function TopNav({ refresh }) {
   const apiURL = "https://anonypost.onrender.com/api/post/";
+  const navigate = useNavigate();
   const [currentURL, setCurrentURL] = useState(null);
   const [modalState, setModalState] = useState(false);
   const [body, setBody] = useState("");
@@ -79,7 +81,7 @@ function TopNav({ refresh }) {
   return (
     <>
       <header>
-        <div className="logo">
+        <div className="logo" onClick={() => navigate("/")}>
           <img src={logoIcon} alt="logo" />
           <h1>AnonyPost</h1>
         </div>

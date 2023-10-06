@@ -32,6 +32,11 @@
   flex-direction: column;
   gap: 1.5rem;
   position: relative;
+  transition: all 0.15s ease-in-out;
+}
+
+.card-container .card:active {
+  background-color: rgba(240, 240, 240, 0.607);
 }
 
 .card-container .card .body {
