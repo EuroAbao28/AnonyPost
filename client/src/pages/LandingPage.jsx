@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./LandingPage.css";
 import TopNav from "../components/TopNav";
+import svgIcon from "../assets/hacker.svg";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ function LandingPage() {
     <div className="landing-page-container">
       <TopNav />
       <main>
+        <img src={svgIcon} alt="SVG" />
         <section>
           <h1>Welcome to AnonyPost</h1>
           <p>
